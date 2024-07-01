@@ -6,6 +6,7 @@ function getComputerChoice(array) {
 window.addEventListener("DOMContentLoaded", (event) => {
   function rockChoiceRound() {
     while (round < 5) {
+      computerChoice = getComputerChoice(choices);
       round += 1;
       if (computerChoice == "paper") {
         roundResult.textContent = "Round " + round + ": u lost.";
@@ -16,12 +17,19 @@ window.addEventListener("DOMContentLoaded", (event) => {
       } else roundResult.textContent = "Round " + round + ": a draw.";
       yourScore.textContent = humanScore;
       hisScore.textContent = computerScore;
+      if (round == 5 && humanScore > computerScore)
+        winner.textContent = "Congratulations ! the winner of the game is you.";
+      else if (round == 5 && computerScore > humanScore)
+        winner.textContent = "You lost the game! Better luck next time.";
+      else if (round == 5 && computerScore == humanScore)
+        winner.textContent = "The game finished with a draw.";
       break;
     }
   }
 
   function paperChoiceRound() {
     while (round < 5) {
+      computerChoice = getComputerChoice(choices);
       round += 1;
       if (computerChoice == "scissors") {
         roundResult.textContent = "Round " + round + ": u lost.";
@@ -32,12 +40,19 @@ window.addEventListener("DOMContentLoaded", (event) => {
       } else roundResult.textContent = "Round " + round + ": a draw.";
       yourScore.textContent = humanScore;
       hisScore.textContent = computerScore;
+      if (round == 5 && humanScore > computerScore)
+        winner.textContent = "Congratulations ! the winner of the game is you.";
+      else if (round == 5 && computerScore > humanScore)
+        winner.textContent = "You lost the game! Better luck next time.";
+      else if (round == 5 && computerScore == humanScore)
+        winner.textContent = "The game finished with a draw.";
       break;
     }
   }
 
   function scissorsChoiceRound() {
     while (round < 5) {
+      computerChoice = getComputerChoice(choices);
       round += 1;
       if (computerChoice == "paper") {
         roundResult.textContent = "Round " + round + ": u won.";
@@ -48,6 +63,12 @@ window.addEventListener("DOMContentLoaded", (event) => {
       } else roundResult.textContent = "Round " + round + ": a draw.";
       yourScore.textContent = humanScore;
       hisScore.textContent = computerScore;
+      if (round == 5 && humanScore > computerScore)
+        winner.textContent = "Congratulations ! the winner of the game is you.";
+      else if (round == 5 && computerScore > humanScore)
+        winner.textContent = "You lost the game! Better luck next time.";
+      else if (round == 5 && computerScore == humanScore)
+        winner.textContent = "The game finished with a draw.";
       break;
     }
   }
@@ -63,8 +84,18 @@ window.addEventListener("DOMContentLoaded", (event) => {
   const yourScore = document.querySelector(".humanScore");
   const hisScore = document.querySelector(".computerScore");
   const roundResult = document.querySelector(".resultText");
+  const winner = document.querySelector(".winner");
 
   humanChoice[0].addEventListener("click", scissorsChoiceRound);
   humanChoice[1].addEventListener("click", rockChoiceRound);
   humanChoice[2].addEventListener("click", paperChoiceRound);
+  humanChoice[3].addEventListener("click", () => {
+    roundResult.textContent = "Select a choice to start a game of 5 rounds.";
+    round = 0;
+    humanScore = 0;
+    computerScore = 0;
+    yourScore.textContent = 0;
+    hisScore.textContent = 0;
+    winner.textContent = "";
+  });
 });

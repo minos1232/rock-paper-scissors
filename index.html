@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="script.js"></script>
-    <title>Rock paper Scissors</title>
+    <title>Rock Paper Scissors</title>
     <style>
       .humanContainer, .computerContainer{
         display: flex;
@@ -16,6 +16,10 @@
         margin: 5px;
         background-color: aquamarine;
       }
+      .reset{
+        margin: 5px;
+        background-color: yellowgreen;
+      }
     </style>
   </head>
   <body>
@@ -25,11 +29,13 @@
       <button class="choices">paper</button>
     </div>
     <div class="resultText">Select a choice to start a game of 5 rounds.</div>
-      <div class="humanContainer">
+    <div class="humanContainer">
       <p>Human score is :<div class="humanScore"> 0</div> .</p>
-      </div>
-      <div class="computerContainer">
+    </div>
+    <div class="computerContainer">
       <p>Computer score is :<div class="computerScore"> 0</div> .</p>
     </div>
+    <button class="reset">Reset the game</button>
+    <div class="winner"></div>
   </body>
 </html>
